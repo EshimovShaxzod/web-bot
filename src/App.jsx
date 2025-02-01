@@ -54,24 +54,24 @@ const App = () => {
 
 	const onSendData = useCallback(() => {
 		const queryID = telegram.initDataUnsafe?.query_id;
-
-		if (queryID) {
-			fetch(
-				'https://telegramwebapibot-b671371abfbb.herokuapp.com/web-data',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						products: cartItems,
-						queryID: queryID,
-					}),
-				}
-			);
-		} else {
-			telegram.sendData(JSON.stringify(cartItems));
-		}
+    telegram.sendData(JSON.stringify(cartItems));
+		// if (queryID) {
+		// 	fetch(
+		// 		'https://telegramwebapibot-b671371abfbb.herokuapp.com/web-data',
+		// 		{
+		// 			method: 'POST',
+		// 			headers: {
+		// 				'Content-Type': 'application/json',
+		// 			},
+		// 			body: JSON.stringify({
+		// 				products: cartItems,
+		// 				queryID: queryID,
+		// 			}),
+		// 		}
+		// 	);
+      
+		// } else {
+		// }
 	}, [cartItems]);
 
 	useEffect(() => {
